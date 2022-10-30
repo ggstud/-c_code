@@ -1,25 +1,29 @@
 #include<stdio.h>
-void bubble_sort(int arr[], int sz) {
-	int i = 0;
-	for (i = 0; i < sz - 1; i++) {
-		int j = 0;
-		for (j = 0; j < sz - 1 - i; j++) {
-			if (arr[j] > arr[j + 1]) {
-				int tmp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = tmp;
+
+int main() {
+	int n;
+	scanf("%d",&n);
+	int num = 0;
+	int num2 = 0;
+	int sum = 0;
+	int sum2 = 0;
+	for (int i = 0; i < n; i++) {
+		scanf("%d",&num);
+			int x = num;
+			for (sum = 0; num != 0;) {
+				sum = sum + num % 10;
+				num = num / 10;
 			}
+			num = x;
+		if (sum == sum2) {
+			if (num > num2)
+				num2 = num;
+		}
+		if (sum > sum2) {
+			num2 = num;
+			sum2 = sum;
 		}
 	}
-
-}
-int main(void) {
-	int arr[10] = { 0,1,2,3,4,5,6,7,8,9 };
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	bubble_sort(arr, sz);
-	int i = 0;
-	for (i = 0; i < sz; i++) {
-		printf("%d ",arr[i]);
-	}
+	printf("%d", num2);
 	return 0;
 }
